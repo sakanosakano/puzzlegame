@@ -50,7 +50,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         // TimerTask インスタンスを生成
         timerTask = new CountUpTimerTask();
 
-        // スケジュールを設定 100msec
+        // スケジュールを設定 200msec
         // public void schedule (TimerTask task, long delay, long period)
         timer.schedule(timerTask, 0, 200);
     }
