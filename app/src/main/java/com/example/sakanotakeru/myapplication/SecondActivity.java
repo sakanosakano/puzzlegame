@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -18,11 +19,10 @@ import java.util.TimerTask;
  */
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
-    private Timer timer;
-    private CountUpTimerTask timerTask = null;
-    private Handler handler = new Handler();
     private ImageView[] imageViews = new ImageView[9];
-    private static int[] resouces = {R.mipmap.droid1,R.mipmap.droid2,R.mipmap.droid3};
+    private static int[] resouces = {R.mipmap.puzzle1,R.mipmap.puzzle2,R.mipmap.puzzle3,
+            R.mipmap.puzzle4,R.mipmap.puzzle5,R.mipmap.puzzle6,
+            R.mipmap.puzzle7,R.mipmap.puzzle8,R.mipmap.puzzle9};
     private static int count = 0;
     Button endButton;
     Button backButton;
@@ -41,44 +41,29 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         endButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
         suffleButton.setOnClickListener(this);
-        timerStart();
+        for (int i = 0; i < 9; i++) {
+            imageViews[i].setOnClickListener(this);
+        }
     }
-    public void timerStart() {
-        // Timer インスタンスを生成
-        timer = new Timer();
 
-        // TimerTask インスタンスを生成
-        timerTask = new CountUpTimerTask();
-
-        // スケジュールを設定 200msec
-        // public void schedule (TimerTask task, long delay, long period)
-        timer.schedule(timerTask, 0, 200);
-    }
 
     @Override
     public void onClick(View v) {
         if (v == endButton){
             finish();
         }else if(v == backButton){
-            timer.cancel();
         }else if(v == suffleButton){
-            timerStart();
         }
     }
 
-    class CountUpTimerTask extends TimerTask {
-        @Override
-        public void run() {
-            // handlerを使って処理をキューイングする
-            handler.post(new Runnable() {
-                public void run() {
-                    imageViews[0].setImageResource(resouces[count]);
-                }
-            });
-            count++;
-            if (count > 2){
-                count = 0;
-            }
+    public void suffle() {
+        Random ran;
+        ran = new Random();
+        int random = ran.nextInt(9);
+        for (int i = 0; i < 100 ;i++) {
+
         }
     }
+
+
 }
