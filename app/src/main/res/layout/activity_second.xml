@@ -20,18 +20,15 @@
             <ImageView
                 android:id="@+id/panel0"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle1"/>
+                android:layout_height="100dp" />
             <ImageView
                 android:id="@+id/panel1"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle2"/>
+                android:layout_height="100dp" />
             <ImageView
                 android:id="@+id/panel2"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle3"/>
+                android:layout_height="100dp"/>
 
         </LinearLayout>
         <LinearLayout
@@ -42,19 +39,16 @@
             <ImageView
                 android:id="@+id/panel3"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle4"/>
+                android:layout_height="100dp" />
 
             <ImageView
                 android:id="@+id/panel4"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle5"/>
+                android:layout_height="100dp" />
             <ImageView
                 android:id="@+id/panel5"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle6"/>
+                android:layout_height="100dp" />
 
         </LinearLayout>
         <LinearLayout
@@ -65,19 +59,16 @@
             <ImageView
                 android:id="@+id/panel6"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle7"/>
+                android:layout_height="100dp" />
 
             <ImageView
                 android:id="@+id/panel7"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle8"/>
+                android:layout_height="100dp" />
             <ImageView
                 android:id="@+id/panel8"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/puzzle9"/>
+                android:layout_height="100dp" />
 
         </LinearLayout>
 
