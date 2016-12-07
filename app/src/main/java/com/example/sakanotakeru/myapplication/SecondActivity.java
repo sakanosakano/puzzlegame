@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -25,11 +26,12 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             R.mipmap.puzzle4,R.mipmap.puzzle5,R.mipmap.puzzle6,
             R.mipmap.puzzle7,R.mipmap.puzzle8,R.mipmap.puzzle9, R.mipmap.puzzle00};
     private  static int[] mBox = {0,1,2,3,4,5,6,7,9};
-    private static int count = 0;
     private boolean moveFlag = false;
     Button endButton;
     Button backButton;
     Button suffleButton;
+    private long startTime;
+    private long stopTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         }
         imageViews[8].setImageResource(resouces[9]);
         suffle();
+        startTime = System.currentTimeMillis();
     }
 
 
@@ -107,6 +110,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         if (ran - 3 >= 0 && !moveFlag){
             moveUp(ran);
         }
+        checkComplete();
     }
     public void moveUp(int index) {
         if(mBox[index-3] == 9){
@@ -150,6 +154,26 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             mBox[index -1] = s;
             imageViews[index].setImageResource(resouces[mBox[index]]);
             imageViews[index-1].setImageResource(resouces[mBox[index-1]]);
+        }
+    }
+
+    public void checkComplete() {
+        int count = 0;
+        for(int i = 0; i < 8; i++) {
+            if (mBox[i] == i){
+                count++;
+            }
+        }
+        if (count == 8){
+            stopTime = System.currentTimeMillis();
+            long time = stopTime - startTime;
+            int second = (int) (time/1000);
+            int comma = (int) (time % 1000);
+            new AlertDialog.Builder(this)
+                    .setTitle("おめでとう！！")
+                    .setMessage(second+"秒"+comma)
+                    .setPositiveButton("OK", null)
+                    .show();
         }
     }
 
