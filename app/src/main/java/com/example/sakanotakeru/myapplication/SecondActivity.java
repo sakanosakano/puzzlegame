@@ -110,7 +110,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         if (ran - 3 >= 0 && !moveFlag){
             moveUp(ran);
         }
-        checkComplete();
+
     }
     public void moveUp(int index) {
         if(mBox[index-3] == 9){
@@ -121,6 +121,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             mBox[index -3] = s;
             imageViews[index].setImageResource(resouces[mBox[index]]);
             imageViews[index-3].setImageResource(resouces[mBox[index-3]]);
+            checkComplete();
         }
     }
     public void moveDown(int index) {
@@ -132,6 +133,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             mBox[index +3] = s;
             imageViews[index].setImageResource(resouces[mBox[index]]);
             imageViews[index+3].setImageResource(resouces[mBox[index+3]]);
+            checkComplete();
         }
     }
     public void moveRight(int index) {
@@ -143,6 +145,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             mBox[index +1] = s;
             imageViews[index].setImageResource(resouces[mBox[index]]);
             imageViews[index+1].setImageResource(resouces[mBox[index+1]]);
+            checkComplete();
         }
     }
     public void moveLeft(int index) {
@@ -154,6 +157,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             mBox[index -1] = s;
             imageViews[index].setImageResource(resouces[mBox[index]]);
             imageViews[index-1].setImageResource(resouces[mBox[index-1]]);
+            checkComplete();
         }
     }
 
