@@ -168,10 +168,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             stopTime = System.currentTimeMillis();
             long time = stopTime - startTime;
             int second = (int) (time/1000);
-            int comma = (int) (time % 1000);
             new AlertDialog.Builder(this)
                     .setTitle("おめでとう！！")
-                    .setMessage(second+"秒"+comma)
+                    .setMessage(second+"秒")
                     .setPositiveButton("OK", null)
                     .show();
         }
