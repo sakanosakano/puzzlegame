@@ -82,20 +82,22 @@
 
             <Button
                 android:id="@+id/suffuleButton"
+                android:textSize="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="シャッフル"/>
-
+                android:text="もう一度シャッフル"/>
             <Button
                 android:id="@+id/stopButton"
+                android:textSize="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ヒント"/>
+                android:text="完成図"/>
             <Button
                 android:id="@+id/endButton"
+                android:textSize="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="終わり"/>
+                android:text="タイトル画面へ戻る"/>
 
         </LinearLayout>
     </LinearLayout>
