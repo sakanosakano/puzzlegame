@@ -45,7 +45,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         backButton.setOnClickListener(this);
         suffleButton.setOnClickListener(this);
         Resources resources = getResources();
-        Bitmap image = BitmapFactory.decodeResource( resources, R.mipmap.titleimage2 );
+        Bitmap image = BitmapFactory.decodeResource( resources, R.mipmap.puzzle2 );
         Bitmap image2 = BitmapFactory.decodeResource( resources, R.mipmap.puzzle00 );
         //- 縦
         int imageHeight = image.getHeight();
