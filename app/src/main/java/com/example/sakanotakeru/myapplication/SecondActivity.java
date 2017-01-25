@@ -20,14 +20,15 @@ import java.util.Random;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView[] imageViews = new ImageView[9];
-    private static Bitmap[] resouces /*= {R.mipmap.puzzle1,R.mipmap.puzzle2,R.mipmap.puzzle3,
-            R.mipmap.puzzle4,R.mipmap.puzzle5,R.mipmap.puzzle6,
-            R.mipmap.puzzle7,R.mipmap.puzzle8,R.mipmap.puzzle9, R.mipmap.puzzle00}*/;
+    private static Bitmap[] resouces;
     private  static int[] mBox = {0,1,2,3,4,5,6,7,9};
+    private  static int[] image = {R.mipmap.puzzle1, R.mipmap.puzzle2};
     private boolean moveFlag = false;
+    int imageX = 0;
     Button endButton;
     Button backButton;
     Button suffleButton;
+    Button nextButton;
     private long startTime;
     private long stopTime;
     @Override
@@ -41,20 +42,70 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         endButton = (Button) findViewById(R.id.endButton);
         backButton = (Button) findViewById(R.id.stopButton);
         suffleButton = (Button) findViewById(R.id.suffuleButton);
+        nextButton = (Button) findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(this);
         endButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
         suffleButton.setOnClickListener(this);
+        imageSet(image[0]);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        moveFlag = false;
+        if (v == endButton){
+            finish();
+        }else if(v == backButton) {
+            for (int i = 0; i < 9; i++) {
+                imageViews[i].setImageBitmap(resouces[i]);
+            }
+        }else if (v == nextButton) {
+            imageX++;
+            imageSet(image[imageX]);
+            if (imageX == 1) {
+                imageX = -1;
+            }
+        }else if(v == suffleButton){
+            suffle();
+        } else if(v == imageViews[0]){
+            move(0);
+        }else if(v == imageViews[1]){
+            move(1);
+        }else if(v == imageViews[2]){
+            move(2);
+        }else if(v == imageViews[3]){
+            move(3);
+        }else if(v == imageViews[4]){
+            move(4);
+        }else if(v == imageViews[5]){
+            move(5);
+        }else if(v == imageViews[6]){
+            move(6);
+        }else if(v == imageViews[7]){
+            move(7);
+        }else if(v == imageViews[8]){
+            move(8);
+        }
+    }
+
+    public void suffle() {
+        Random ran = new Random();
+        for (int i = 0; i < 500 ;i++) {
+            int random = ran.nextInt(9);
+            moveFlag = false;
+            move(random);
+        }
+    }
+
+    public void imageSet(int res) {
         Resources resources = getResources();
-        Bitmap image = BitmapFactory.decodeResource( resources, R.mipmap.puzzle2 );
+        Bitmap image = BitmapFactory.decodeResource( resources, res );
         Bitmap image2 = BitmapFactory.decodeResource( resources, R.mipmap.puzzle00 );
         //- 縦
         int imageHeight = image.getHeight();
-        //- 横
-        int imageWidth = image.getWidth();
         //- 縦
         int imageHeight2 = image2.getHeight();
-        //- 横
-        int imageWidth2 = image2.getWidth();
         int bestSize = 390;
         //- 画像が想定サイズより大きいか、小さい場合想定サイズに伸縮
         if( imageHeight < bestSize || imageHeight > bestSize) {
@@ -94,48 +145,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         imageViews[8].setImageBitmap(resouces[9]);
         suffle();
         startTime = System.currentTimeMillis();
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        moveFlag = false;
-        if (v == endButton){
-            finish();
-        }else if(v == backButton){
-            for (int i = 0; i < 9; i++) {
-                imageViews[i].setImageBitmap(resouces[i]);
-            }
-        }else if(v == suffleButton){
-            suffle();
-        } else if(v == imageViews[0]){
-            move(0);
-        }else if(v == imageViews[1]){
-            move(1);
-        }else if(v == imageViews[2]){
-            move(2);
-        }else if(v == imageViews[3]){
-            move(3);
-        }else if(v == imageViews[4]){
-            move(4);
-        }else if(v == imageViews[5]){
-            move(5);
-        }else if(v == imageViews[6]){
-            move(6);
-        }else if(v == imageViews[7]){
-            move(7);
-        }else if(v == imageViews[8]){
-            move(8);
-        }
-    }
-
-    public void suffle() {
-        Random ran = new Random();
-        for (int i = 0; i < 500 ;i++) {
-            int random = ran.nextInt(9);
-            moveFlag = false;
-            move(random);
-        }
     }
 
     public void move(int ran) {
