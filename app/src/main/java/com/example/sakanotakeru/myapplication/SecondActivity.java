@@ -22,7 +22,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     private ImageView[] imageViews = new ImageView[9];
     private static Bitmap[] resouces;
     private  static int[] mBox = {0,1,2,3,4,5,6,7,9};
-    private  static int[] image = {R.mipmap.puzzle1, R.mipmap.puzzle2, R.mipmap.puzzle3};
+    private  static int[] image = {R.mipmap.puzzle1, R.mipmap.puzzle2, R.mipmap.puzzle4};
     private boolean moveFlag = false;
     int imageX = 0;
     Button endButton;
@@ -63,7 +63,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         }else if (v == nextButton) {
             imageX++;
             imageSet(image[imageX]);
-            if (imageX == 2) {
+            if (imageX == image.length - 1) {
                 imageX = -1;
             }
         }else if(v == suffleButton){
