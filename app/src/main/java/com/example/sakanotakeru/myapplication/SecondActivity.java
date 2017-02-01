@@ -57,8 +57,16 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         if (v == endButton){
             finish();
         }else if(v == backButton) {
-            for (int i = 0; i < 9; i++) {
-                imageViews[i].setImageBitmap(resouces[i]);
+            if (backButton.getText() == "完成図") {
+                for (int i = 0; i < 9; i++) {
+                    imageViews[i].setImageBitmap(resouces[i]);
+                }
+                backButton.setText("もどる");
+            } else {
+                for (int i = 0; i < 9; i++) {
+                    imageViews[i].setImageBitmap(resouces[mBox[i]]);
+                }
+                backButton.setText("完成図");
             }
         }else if (v == nextButton) {
             imageX++;
