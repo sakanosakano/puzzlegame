@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -57,16 +58,18 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         if (v == endButton){
             finish();
         }else if(v == backButton) {
-            if (backButton.getText() == "完成図") {
+            if (backButton.getText().toString().equals("完成図")) {
                 for (int i = 0; i < 9; i++) {
                     imageViews[i].setImageBitmap(resouces[i]);
                 }
                 backButton.setText("もどる");
+                Log.d("a1", "aaa");
             } else {
                 for (int i = 0; i < 9; i++) {
                     imageViews[i].setImageBitmap(resouces[mBox[i]]);
                 }
                 backButton.setText("完成図");
+                Log.d("a2", "bbb");
             }
         }else if (v == nextButton) {
             imageX++;
